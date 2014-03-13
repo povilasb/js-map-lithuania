@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>
+		Drawing map example
+	</title>
+
+	<link href="js-map-lithuania/lithuania-map.css" rel="stylesheet" />
+
+	<script type="text/javascript"
+		src="lib/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript"
+		src="js-map-lithuania/MapLithuania.js"></script>
+
+	<script type="text/javascript" >
+		window.onload = function() {
+			var ltMap = new MapLithuania("lithuania-map");
+			var countyLabel =
+				document.getElementById("county-label");
+			console.log(countyLabel);
+
+			ltMap.addCountyMouseOverHandler(function(county) {
+				countyLabel.innerHTML = county;
+			});
+		};
+
+	</script>
+</head>
+
+<body>
+	<div>
+		<h2 style="display:inline;">Selected county:</h2>
+		<h2 id="county-label" style="display:inline;">none</h2>
+	</div>
+
+	<object data="js-map-lithuania/lithuania_counties.svg"
+		type="image/svg+xml" id="lithuania-map" height="400px"
+		width="400px">
+		SVG images are not supported by your Web browser.
+	</object>
+</body>
+</html>
