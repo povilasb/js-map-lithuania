@@ -25,6 +25,9 @@
  *  &copy; povilasb.com
  */
 
+/**
+ * @constructor
+ */
 var MapLithuania = function(mapId) {
 
 	this.version = "0.1.0";
@@ -38,37 +41,42 @@ var MapLithuania = function(mapId) {
 	};
 
 	var map = document.getElementById(mapId).contentDocument;
-	var counties = map.getElementsByClassName("lt-county");
-
-
-	/* Public methods */
-
-	/**
-	 * Adds mouse over handler for county area.
-	 *
-	 * @param {Function} handler mouse over handler function. County name
-	 *	is passed to this function as the first parameter.
-	 */
-	this.addCountyMouseOverHandler = function(handler) {
-		for (i = 0; i < counties.length; i++) {
-			var mouseOverHandler = this.getMapElementEventHandler(
-				counties[i].id, handler);
-			counties[i].addEventListener("mouseover",
-				mouseOverHandler);
-		}
-	}
-
-	/**
-	 * Sets the specified county to be active (highlighted).
-	 *
-	 * @param {String} county name of county to be set active.
-	 */
-	this.setActiveCounty = function(county) {
-		var element = map.getElementById(county);
-		addClass(element, "active");
-	}
+	this.counties = map.getElementsByClassName("lt-county");
 
 };
+
+
+/* Public functions. */
+
+
+/**
+ * Adds mouse over handler for county area.
+ *
+ * @param {Function} handler mouse over handler function. County name
+ *	is passed to this function as the first parameter.
+ */
+MapLithuania.prototype.addCountyMouseOverHandler = function(handler) {
+	for (i = 0; i < this.counties.length; i++) {
+		var mouseOverHandler = this.getMapElementEventHandler(
+			this.counties[i].id, handler);
+		this.counties[i].addEventListener("mouseover",
+			mouseOverHandler);
+	}
+};
+
+
+/**
+ * Sets the specified county to be active (highlighted).
+ *
+ * @param {String} county name of county to be set active.
+ */
+MapLithuania.ptototype.setActiveCounty = function(county) {
+	var element = map.getElementById(county);
+	addClass(element, "active");
+};
+
+
+/* Private functions. */
 
 
 /**
@@ -114,4 +122,8 @@ function removeClass(element, className) {
 };
 
 
-window.MapLithuania = MapLithuania;
+window['MapLithuania'] = MapLithuania;
+MapLithuania.prototype['addCountyMouseOverHandler'] =
+	MapLithuania.prototype.addCountyMouseOverHandler;
+MapLithuania.prototype['setActiveCounty'] =
+	MapLithuania.prototype.setActiveCounty;
