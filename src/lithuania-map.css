@@ -5,3 +5,7 @@
 #lt-county-map .lt-county:hover {
 	fill : #A8B7BF;
 }
+
+#lt-county-map .active {
+	fill : #A8B7BF;
+}

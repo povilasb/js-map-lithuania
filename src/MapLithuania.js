@@ -46,7 +46,7 @@ var MapLithuania = function(mapId) {
 	/**
 	 * Adds mouse over handler for county area.
 	 *
-	 * @param handler mouse over handler function. County name
+	 * @param {Function} handler mouse over handler function. County name
 	 *	is passed to this function as the first parameter.
 	 */
 	this.addCountyMouseOverHandler = function(handler) {
@@ -58,6 +58,59 @@ var MapLithuania = function(mapId) {
 		}
 	}
 
+	/**
+	 * Sets the specified county to be active (highlighted).
+	 *
+	 * @param {String} county name of county to be set active.
+	 */
+	this.setActiveCounty = function(county) {
+		var element = map.getElementById(county);
+		addClass(element, "active");
+	}
+
+};
+
+
+/**
+ * Checks if the specified dom element has the specified class name.
+ *
+ * @param element dom element.
+ * @param className class to check.
+ * @return {boolean} true of false.
+ */
+function hasClass(element, className) {
+	return new RegExp('(\\s|^)' + className + '(\\s|$)').test(
+		element.getAttribute('class'));
+};
+
+/**
+ * Appends the specified class name to the specified dom element if it does
+ * not have this class yet.
+ *
+ * @param element dom element.
+ * @param className class to append.
+ */
+function addClass(element, className) {
+	if (!hasClass(element, className)) {
+		element.setAttribute('class', element.getAttribute('class')
+			+ ' ' + className);
+	}
+};
+
+
+/**
+ * Removes the specified class name if one exists in the specified dom element
+ * attribute 'class'.
+ *
+ * @param element dom element.
+ * @param className class to remove.
+ */
+function removeClass(element, className) {
+	var removedClass = element.getAttribute('class').replace(
+		new RegExp('(\\s|^)' + className + '(\\s|$)', 'g'), '$2');
+	if (element.hasClass(className)) {
+		element.setAttribute('class', removedClass);
+	}
 };
 
 
