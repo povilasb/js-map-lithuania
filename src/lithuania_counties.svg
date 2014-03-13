@@ -5,7 +5,7 @@
 	<!ENTITY ns_svg "http://www.w3.org/2000/svg">
 	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
 ]>
-<svg id="povilasb-com-lithuania-map" version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+<svg id="lt-county-map" version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
 	 width="765" height="595" viewBox="-18.713 -19.7 765 595" enable-background="new -18.713 -19.7 765 595" xml:space="preserve">
 
 <defs>
