@@ -40,8 +40,8 @@ var MapLithuania = function(mapId) {
 		}
 	};
 
-	var map = document.getElementById(mapId).contentDocument;
-	this.counties = map.getElementsByClassName("lt-county");
+	this.map = document.getElementById(mapId).contentDocument;
+	this.counties = this.map.getElementsByClassName("lt-county");
 
 };
 
@@ -70,8 +70,8 @@ MapLithuania.prototype.addCountyMouseOverHandler = function(handler) {
  *
  * @param {String} county name of county to be set active.
  */
-MapLithuania.ptototype.setActiveCounty = function(county) {
-	var element = map.getElementById(county);
+MapLithuania.prototype.setActiveCounty = function(county) {
+	var element = this.map.getElementById(county);
 	addClass(element, "active");
 };
 
