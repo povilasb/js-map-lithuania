@@ -7,8 +7,6 @@
 	<link href="js-map-lithuania/lithuania-map.css" rel="stylesheet" />
 
 	<script type="text/javascript"
-		src="lib/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript"
 		src="js-map-lithuania/MapLithuania.js"></script>
 
 	<script type="text/javascript" >
@@ -16,7 +14,6 @@
 			var ltMap = new MapLithuania("lithuania-map");
 			var countyLabel =
 				document.getElementById("county-label");
-			console.log(countyLabel);
 
 			ltMap.addCountyMouseOverHandler(function(county) {
 				countyLabel.innerHTML = county;
