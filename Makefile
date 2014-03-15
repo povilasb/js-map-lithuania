@@ -2,11 +2,11 @@ COMPILER = lib/compiler.jar
 COMPILE = java -jar $(COMPILER)
 
 SRCS = \
-       MapLithuania.js
+       maplithuania.js
 
 SRC_DIR = src
 BUILD_DIR = build/js-lithuania-map
-OUTPUT_FILE_NAME = MapLithuania.min.js
+OUTPUT_FILE_NAME = map-lithuania.min.js
 
 COMPILE_SRCS = ${addprefix --js=$(SRC_DIR)/, $(SRCS)}
 COMPILE_OPTIMIZATIONS = ADVANCED_OPTIMIZATIONS
