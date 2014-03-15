@@ -2,8 +2,10 @@
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	width="765" height="595" viewBox="-18.713 -19.7 765 595"
-	enable-background="new -18.713 -19.7 765 595" xml:space="preserve" >
+	xml:space="preserve"
+	preserveAspectRatio="xMinYMin meet"
+	viewBox="-18 -19 765 595"
+>
 
 <path id="alytus" class="lt-county" fill="#E6EDF1" stroke="#A8B7BF" stroke-width="0.7165" stroke-linecap="round" stroke-linejoin="round" d="M505.197,438.108
 	l-0.845,0.259c-0.03,0.013-0.556,0.27-0.556,0.27l-0.039,0.02c0,0-0.401,0.488-0.477,0.579c-0.125,0.025-1.13,0.232-1.132,0.233
