@@ -20,7 +20,7 @@ STATIC_FILES = \
 	$(SRC_DIR)/lithuania-map.css
 
 
-all: make-dirs compile-svg compile copy-static
+all: make-dirs compile-svg compile copy-static remove-compiled-svg
 .PHONY: all
 
 
@@ -47,6 +47,11 @@ compile-svg:
 	echo "mapLithuania['strSvgMap']=mapLithuania.strSvgMap;" \
 		>> $(BUILD_DIR)/map.js
 .PHONY: compile-svg
+
+
+remove-compiled-svg:
+	rm $(BUILD_DIR)/map.js
+.PHONY: remove-compiled-svg
 
 
 clean:
