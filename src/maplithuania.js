@@ -37,10 +37,9 @@ mapLithuania = window['mapLithuania'];
 
 /**
  * @constructor
+ * @param {String} containerId element id in which map <svg> will be inserted.
  */
-mapLithuania.Map = function(mapId) {
-
-	this.mapId = mapId;
+mapLithuania.Map = function(containerId) {
 
 	this.getMapElementEventHandler = function(element, handler) {
 		return function() {
@@ -48,7 +47,26 @@ mapLithuania.Map = function(mapId) {
 		}
 	};
 
-	this.map = document.getElementById(mapId).contentDocument;
+	var svgContainer = document.getElementById(containerId);
+
+	// TODO: uncomment the checks. Right now google compiler crashes
+	// becuase of them. Reason unknown. Might be compiler bug.
+	/*
+	if (typeof svgcontainer == 'undefined') {
+		var err = 'mapLithuania: Could not find element #'
+			+ containerId;
+		throw err;
+	}
+
+	if (typeof mapLithuania.strSvgMap == 'undefined') {
+		throw 'mapLithuania: Compilation error - could not find ' +
+			'map svg element string.';
+	}
+	*/
+
+	svgContainer.insertAdjacentHTML("beforeend", mapLithuania.strSvgMap);
+
+	this.map = document.getElementById("lt-county-map");
 	this.counties = this.map.getElementsByClassName("lt-county");
 
 };
