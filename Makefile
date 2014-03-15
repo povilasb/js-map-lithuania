@@ -8,23 +8,28 @@ SRC_DIR = src
 BUILD_DIR = build/js-lithuania-map
 OUTPUT_FILE_NAME = map-lithuania.min.js
 
-COMPILE_SRCS = ${addprefix --js=$(SRC_DIR)/, $(SRCS)}
+COMPILE_SRCS = ${addprefix --js=$(SRC_DIR)/, $(SRCS)} \
+	$(BUILD_DIR)/map.js
+
 COMPILE_OPTIMIZATIONS = ADVANCED_OPTIMIZATIONS
 COMPILER_FLAGS = --compilation_level $(COMPILE_OPTIMIZATIONS) \
 	--js_output_file=$(BUILD_DIR)/$(OUTPUT_FILE_NAME) \
 	--output_wrapper "(function() {%output%})();"
 
 STATIC_FILES = \
-	$(SRC_DIR)/lithuania_counties.svg \
 	$(SRC_DIR)/lithuania-map.css
 
 
-all: compile copy-static
+all: make-dirs compile-svg compile copy-static
 .PHONY: all
 
 
-compile:
+make-dirs:
 	mkdir -p $(BUILD_DIR)
+.PHONY: make-dirs
+
+
+compile:
 	$(COMPILE) $(COMPILE_SRCS) $(COMPILER_FLAGS)
 .PHONY: compile
 
@@ -32,6 +37,16 @@ compile:
 copy-static:
 	cp $(STATIC_FILES) $(BUILD_DIR)
 .PHONY:
+
+
+compile-svg:
+	sed "s:^:':g" $(SRC_DIR)/lithuania_counties.svg  > $(BUILD_DIR)/map.js
+	sed -i "s:$$:'+:g" $(BUILD_DIR)/map.js
+	sed -i "1s:^:mapLithuania.strSvgMap=:" $(BUILD_DIR)/map.js
+	echo "'';\n" >> $(BUILD_DIR)/map.js
+	echo "mapLithuania['strSvgMap']=mapLithuania.strSvgMap;" \
+		>> $(BUILD_DIR)/map.js
+.PHONY: compile-svg
 
 
 clean:
