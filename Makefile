@@ -5,7 +5,7 @@ SRCS = \
        maplithuania.js
 
 SRC_DIR = src
-BUILD_DIR = build/js-lithuania-map
+BUILD_DIR = build/js-map-lithuania
 OUTPUT_FILE_NAME = map-lithuania.min.js
 
 COMPILE_SRCS = ${addprefix --js=$(SRC_DIR)/, $(SRCS)} \
@@ -17,7 +17,7 @@ COMPILER_FLAGS = --compilation_level $(COMPILE_OPTIMIZATIONS) \
 	--output_wrapper "(function() {%output%})();"
 
 STATIC_FILES = \
-	$(SRC_DIR)/lithuania-map.css
+	$(SRC_DIR)/map-lithuania.css
 
 
 all: make-dirs compile-svg compile copy-static remove-compiled-svg
