@@ -25,7 +25,9 @@
  *  &copy; povilasb.com
  */
 
-window['mapLithuania'] = {};
+window['mapLithuania'] = {
+	version : '0.1.0'
+};
 
 /**
  * @namespace mapLithuania
@@ -37,8 +39,6 @@ mapLithuania = window['mapLithuania'];
  * @constructor
  */
 mapLithuania.Map = function(mapId) {
-
-	this.version = "0.1.0";
 
 	this.mapId = mapId;
 
