@@ -25,10 +25,18 @@
  *  &copy; povilasb.com
  */
 
+window['mapLithuania'] = {};
+
+/**
+ * @namespace mapLithuania
+ */
+mapLithuania = window['mapLithuania'];
+
+
 /**
  * @constructor
  */
-var MapLithuania = function(mapId) {
+mapLithuania.Map = function(mapId) {
 
 	this.version = "0.1.0";
 
@@ -55,7 +63,7 @@ var MapLithuania = function(mapId) {
  * @param {Function} handler mouse over handler function. County name
  *	is passed to this function as the first parameter.
  */
-MapLithuania.prototype.addCountyMouseOverHandler = function(handler) {
+Map.prototype.addCountyMouseOverHandler = function(handler) {
 	for (i = 0; i < this.counties.length; i++) {
 		var mouseOverHandler = this.getMapElementEventHandler(
 			this.counties[i].id, handler);
@@ -70,7 +78,7 @@ MapLithuania.prototype.addCountyMouseOverHandler = function(handler) {
  *
  * @param {String} county name of county to be set active.
  */
-MapLithuania.prototype.setActiveCounty = function(county) {
+Map.prototype.setActiveCounty = function(county) {
 	var element = this.map.getElementById(county);
 	addClass(element, "active");
 };
@@ -122,8 +130,12 @@ function removeClass(element, className) {
 };
 
 
-window['MapLithuania'] = MapLithuania;
-MapLithuania.prototype['addCountyMouseOverHandler'] =
-	MapLithuania.prototype.addCountyMouseOverHandler;
-MapLithuania.prototype['setActiveCounty'] =
-	MapLithuania.prototype.setActiveCounty;
+/* Exporting symbols for closure compiler. */
+
+mapLithuania['Map'] = mapLithuania.Map;
+
+mapLithuania.Map.prototype['addCountyMouseOverHandler'] =
+	mapLithuania.Map.prototype.addCountyMouseOverHandler;
+
+mapLithuania.Map.prototype['setActiveCounty'] =
+	mapLithuania.Map.prototype.setActiveCounty;
