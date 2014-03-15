@@ -63,7 +63,7 @@ mapLithuania.Map = function(mapId) {
  * @param {Function} handler mouse over handler function. County name
  *	is passed to this function as the first parameter.
  */
-Map.prototype.addCountyMouseOverHandler = function(handler) {
+mapLithuania.Map.prototype.addCountyMouseOverHandler = function(handler) {
 	for (i = 0; i < this.counties.length; i++) {
 		var mouseOverHandler = this.getMapElementEventHandler(
 			this.counties[i].id, handler);
@@ -78,7 +78,7 @@ Map.prototype.addCountyMouseOverHandler = function(handler) {
  *
  * @param {String} county name of county to be set active.
  */
-Map.prototype.setActiveCounty = function(county) {
+mapLithuania.Map.prototype.setActiveCounty = function(county) {
 	var element = this.map.getElementById(county);
 	addClass(element, "active");
 };
