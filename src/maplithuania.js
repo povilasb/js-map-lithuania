@@ -17,16 +17,11 @@
  * - telsiai;
  * - marijampole.
  *
- * NOTE: SVG element is embedded with object tag. Limitation of this technique
- * is that it is restricted by the same-origin policy, svg must be hosted on
- * the same domain as the html file, otherwise the inner DOM of the object
- * will be inaccessible.
- *
  *  &copy; povilasb.com
  */
 
 window['mapLithuania'] = {
-	version : '0.1.0'
+	version : '0.1.1'
 };
 
 /**
